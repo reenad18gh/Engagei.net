@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engage Interactive — IT & Creative Solutions</title>
+  <meta name="description" content="Engage Interactive — Saudi IT & Creative Digital Solutions. Immersive tech, interactive exhibits, projection mapping, and digital transformation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12'
+            }
+          },
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          boxShadow: { glow: '0 0 24px rgba(249, 115, 22, 0.35)' },
+          backgroundImage: {
+            grid: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* ===== Brand Theme (edit your colors here) ===== */
+    :root {
+      --brand-50:  #f2fbfb;
+      --brand-100: #e6f7f6;
+      --brand-200: #c8efee;
+      --brand-300: #9ddbd9;  /* light */
+      --brand-400: #6bc9c6;  /* accent */
+      --brand-500: #26b0ac;  /* primary */
+      --brand-600: #1f8e8b;  /* hover */
+      --brand-700: #187674;
+      --brand-800: #145f5e;
+      --brand-900: #0f4a49;
+    }
+    /* Map utilities to variables (so Tailwind classes use your brand) */
+    .text-brand-300{color:var(--brand-300)!important}
+    .text-brand-400{color:var(--brand-400)!important}
+    .bg-brand-500{background-color:var(--brand-500)!important}
+    .bg-brand-500\/10{background-color:color-mix(in oklab, var(--brand-500) 10%, transparent)!important}
+    .bg-brand-500\/15{background-color:color-mix(in oklab, var(--brand-500) 15%, transparent)!important}
+    .hover\:bg-brand-600:hover{background-color:var(--brand-600)!important}
+    .ring-brand-500\/30{--tw-ring-color:color-mix(in oklab, var(--brand-500) 30%, transparent)!important}
+    .ring-brand-500\/40{--tw-ring-color:color-mix(in oklab, var(--brand-500) 40%, transparent)!important}
+    .selection\:bg-brand-500\/30::selection{background-color:color-mix(in oklab, var(--brand-500) 30%, transparent)!important}
+
+    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-6px) } 100% { transform: translateY(0) } }
+    .float { animation: float 6s ease-in-out infinite; }
+    @keyframes shimmer { 0% {background-position: -200% 0} 100% {background-position: 200% 0} }
+    .shimmer { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 100%); background-size: 200% 100%; animation: shimmer 3s infinite; }
+    .shadow-glow{ box-shadow: 0 0 24px color-mix(in oklab, var(--brand-500) 35%, transparent) !important; }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="engage-logo-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="engage-logo-512.png" />
+</head>
+<body class="bg-[#0b0b0f] text-white font-sans selection:bg-brand-500/30">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="engage-logo.png" alt="Engage Interactive" class="h-8 w-auto object-contain drop-shadow" onerror="this.replaceWith(document.getElementById('logoFallback').content.cloneNode(true))">
+          <template id="logoFallback">
+            <div class="h-8 w-8 rounded-xl bg-brand-500/20 grid place-items-center ring-1 ring-brand-500/40 group-hover:shadow-glow transition">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-500"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v6m0 8v6m6-10h6M0 12h6m11.313-6.687-4.243 4.243m0 4.888 4.243 4.243M6.93 6.93l4.243 4.243m0 4.888L6.93 20.303"/></svg>
+            </div>
+          </template>
+          <span class="text-sm tracking-widest uppercase text-white/80">Engage Interactive</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
+          <a href="#about" class="hover:text-white">About</a>
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#projects" class="hover:text-white">Projects</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-white/80 hover:text-white hover:bg-white/10">
+          <span class="sr-only">Open main menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/60">
+      <div class="px-4 py-3 flex flex-col gap-3 text-white/80">
+        <a href="#about" class="hover:text-white" onclick="toggleMenu()">About</a>
+        <a href="#services" class="hover:text-white" onclick="toggleMenu()">Services</a>
+        <a href="#projects" class="hover:text-white" onclick="toggleMenu()">Projects</a>
+        <a href="#contact" class="hover:text-white" onclick="toggleMenu()">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative pt-28 pb-20 overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <video id="bgVideo" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
+        <!-- Add both sources; browsers pick the first they support -->
+        <source src="hero.webm" type="video/webm" />
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+      <noscript>
+        <div class="absolute inset-0 bg-[url('hero-poster.jpg')] bg-cover bg-center"></div>
+      </noscript>
+    </div>
+
+    <!-- Simple Mute/Unmute button (optional) -->
+    <button id="bgMute" class="absolute right-4 bottom-4 z-10 inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-black/50 ring-1 ring-white/10 hover:bg-black/60">
+      🔇 Mute
+    </button>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-brand-300 bg-brand-500/10 ring-1 ring-brand-500/30 px-3 py-1 rounded-full">IT & Creative Solutions</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            Building immersive, intelligent
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-400">digital experiences</span>
+          </h1>
+          <p class="text-white/70 max-w-xl">We design and deliver immersive experiences, interactive installations, and enterprise-grade IT solutions that align with <span class="text-white">Saudi Vision 2030</span>.</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#contact" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-5 py-3 rounded-xl font-medium shadow-glow transition">
+              Talk to Us
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 text-white/80 transition">View Projects</a>
+          </div>
+          <div class="flex items-center gap-6 text-white/60 pt-2">
+            <div class="text-sm"><span class="font-semibold text-white">10+ years</span><br/>experience</div>
+            <div class="text-sm"><span class="font-semibold text-white">Creative tech</span><br/>specialists</div>
+            <div class="text-sm"><span class="font-semibold text-white">Saudi</span><br/>creative company</div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl border border-white/10 bg-white/5 overflow-hidden shadow-2xl float">
+            <div class="w-full h-full bg-grid bg-[length:24px_24px] relative">
+              <div class="absolute inset-4 grid grid-cols-3 gap-4 p-2">
+                <div class="col-span-2 rounded-xl bg-black/40 ring-1 ring-white/10 p-4">
+                  <div class="h-40 rounded-lg bg-white/5 shimmer"></div>
+                  <div class="mt-4 h-3 w-2/3 rounded bg-white/10"></div>
+                  <div class="mt-2 h-3 w-1/2 rounded bg-white/10"></div>
+                </div>
+                <div class="rounded-xl bg-black/40 ring-1 ring-white/10 p-4">
+                  <div class="h-24 rounded-lg bg-white/5"></div>
+                  <div class="mt-4 h-3 w-3/4 rounded bg-white/10"></div>
+                  <div class="mt-2 h-3 w-1/2 rounded bg-white/10"></div>
+                </div>
+                <div class="rounded-xl bg-black/40 ring-1 ring-white/10 p-4">
+                  <div class="h-24 rounded-lg bg-white/5"></div>
+                  <div class="mt-4 h-3 w-3/4 rounded bg-white/10"></div>
+                  <div class="mt-2 h-3 w-1/2 rounded bg-white/10"></div>
+                </div>
+                <div class="col-span-2 rounded-xl bg-black/40 ring-1 ring-white/10 p-4">
+                  <div class="h-32 rounded-lg bg-white/5"></div>
+                  <div class="mt-4 h-3 w-2/3 rounded bg-white/10"></div>
+                  <div class="mt-2 h-3 w-1/2 rounded bg-white/10"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">About Engage Interactive</h2>
+          <p class="text-white/70 leading-relaxed">Engage Interactive is a Saudi creative company specializing in <span class="text-white">Information Technology</span> and <span class="text-white">Creative Digital Solutions</span>. We merge innovation, technology, and art to deliver immersive experiences that engage audiences and transform ideas into interactive realities. Our work aligns with <span class="text-white">Saudi Vision 2030</span> and drives sustainable digital transformation.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="px-3 py-1 rounded-full text-xs tracking-widest uppercase bg-white/5 ring-1 ring-white/10">Interactive Exhibits</span>
+            <span class="px-3 py-1 rounded-full text-xs tracking-widest uppercase bg-white/5 ring-1 ring-white/10">Projection Mapping</span>
+            <span class="px-3 py-1 rounded-full text-xs tracking-widest uppercase bg-white/5 ring-1 ring-white/10">IT Infrastructure</span>
+            <span class="px-3 py-1 rounded-full text-xs tracking-widest uppercase bg-white/5 ring-1 ring-white/10">Creative Tech</span>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+            <p class="text-4xl font-extrabold text-brand-400">95%</p>
+            <p class="text-white/70">Client satisfaction across projects</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+            <p class="text-4xl font-extrabold text-brand-400">50+</p>
+            <p class="text-white/70">Projects delivered</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+            <p class="text-4xl font-extrabold text-brand-400">10+</p>
+            <p class="text-white/70">Industries served</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+            <p class="text-4xl font-extrabold text-brand-400">Creative Tech</p>
+            <p class="text-white/70">Specialized team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 border-t border-white/10 bg-white/[0.02]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4 mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold">Our Services</h2>
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 text-sm text-brand-300 hover:text-brand-200">Start a project <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v12m-7-7h14M3 5h18"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">IT Solutions & Infrastructure</h3>
+          <p class="text-white/70 text-sm">Smart networks, systems integration, cybersecurity posture, and managed services built for scale and reliability.</p>
+        </div>
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Immersive & Interactive Technologies</h3>
+          <p class="text-white/70 text-sm">Design and deployment of XR experiences, multi-user simulation, and training environments.</p>
+        </div>
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17l6-6 4 4 6-6"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Creative Content & 3D</h3>
+          <p class="text-white/70 text-sm">3D modeling, animation, motion graphics, and real-time content pipelines for interactive media.</p>
+        </div>
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8h18M7 12h10M5 16h14"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Interactive Exhibits & Installations</h3>
+          <p class="text-white/70 text-sm">Museums, visitor centers, projection mapping, and sensor-driven experiences.</p>
+        </div>
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Training & Simulation Labs</h3>
+          <p class="text-white/70 text-sm">MoCap labs, tactical training with StressVest® integrations, and analytics-driven performance tracking.</p>
+        </div>
+        <div class="group rounded-2xl bg-black/40 ring-1 ring-white/10 p-6 hover:ring-brand-500/40 hover:shadow-glow transition">
+          <div class="h-10 w-10 grid place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/40 mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-400"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Digital Transformation</h3>
+          <p class="text-white/70 text-sm">Consulting, systems integration, and workflow automation for government and enterprise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4 mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold">Projects</h2>
+        <div class="flex items-center gap-2 text-sm text-white/60">
+          <button id="prev" class="p-2 rounded-lg ring-1 ring-white/10 hover:bg-white/5" aria-label="Previous">◀</button>
+          <button id="next" class="p-2 rounded-lg ring-1 ring-white/10 hover:bg-white/5" aria-label="Next">▶</button>
+        </div>
+      </div>
+      <div class="relative">
+        <div id="carousel" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all">
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Rollover Safety Simulator</h3>
+              <p class="text-white/70 text-sm mt-1">Interactive experience to raise awareness about seatbelt usage and road safety.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Education / Safety</div>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Projection Mapping — Heritage Facade</h3>
+              <p class="text-white/70 text-sm mt-1">Large-scale projection show enhancing architectural storytelling for cultural destinations.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Culture / Tourism</div>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Tactical Training with StressVest®</h3>
+              <p class="text-white/70 text-sm mt-1">Force-on-force training platform with tetherless recoil kits and performance analytics.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Security / Government</div>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Interactive Museum Exhibit</h3>
+              <p class="text-white/70 text-sm mt-1">Sensor-based interactions and real-time visuals for engaging visitor journeys.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Museums / Education</div>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Enterprise IT Modernization</h3>
+              <p class="text-white/70 text-sm mt-1">Network redesign, security hardening, and cloud migration for high availability.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Enterprise</div>
+            </div>
+          </article>
+          <article class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 group">
+            <div class="h-40 bg-[linear-gradient(120deg,rgba(38,176,172,.3),rgba(255,255,255,.05))]"></div>
+            <div class="p-5">
+              <h3 class="font-semibold">Event Visuals & Motion Graphics</h3>
+              <p class="text-white/70 text-sm mt-1">High-impact show content with real-time graphics and synchronized lighting.</p>
+              <div class="mt-3 text-xs text-white/60">Sector: Events / Entertainment</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get in touch</h2>
+          <p class="text-white/70">We’re here to answer your questions and listen to your suggestions.</p>
+
+          <div class="mt-6 space-y-3 text-white/70">
+            <div class="flex items-center gap-3"><span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">📍</span> Saudi Arabia</div>
+            <div class="flex items-center gap-3"><span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">🏢</span> Balghonaim Tower, King Salman Road, AlKhobar</div>
+            <div class="flex items-center gap-3"><span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">📞</span> +966 53 3351308</div>
+            <div class="flex items-center gap-3"><span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">📧</span> info@engagei.net</div>
+            <div class="flex items-center gap-3 pt-2">
+              <a href="#" class="text-white/70 hover:text-white underline">Twitter</a>
+              <span class="text-white/30">•</span>
+              <a href="#" class="text-white/70 hover:text-white underline">Instagram</a>
+              <span class="text-white/30">•</span>
+              <a href="#" class="text-white/70 hover:text-white underline">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 space-y-4" onsubmit="handleSubmit(event)">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-white/70">First Name <span class="text-red-400">*</span></label>
+              <input required type="text" name="first_name" placeholder="First" class="mt-1 w-full rounded-xl bg-black/40 ring-1 ring-white/10 px-4 py-2.5 outline-none focus:ring-brand-500/50"/>
+            </div>
+            <div>
+              <label class="text-sm text-white/70">Last Name <span class="text-red-400">*</span></label>
+              <input required type="text" name="last_name" placeholder="Last" class="mt-1 w-full rounded-xl bg-black/40 ring-1 ring-white/10 px-4 py-2.5 outline-none focus:ring-brand-500/50"/>
+            </div>
+          </div>
+          <div>
+            <label class="text-sm text-white/70">Email <span class="text-red-400">*</span></label>
+            <input required type="email" name="email" placeholder="your@email.com" class="mt-1 w-full rounded-xl bg-black/40 ring-1 ring-white/10 px-4 py-2.5 outline-none focus:ring-brand-500/50"/>
+          </div>
+          <div>
+            <label class="text-sm text-white/70">Comment or Message</label>
+            <textarea required name="message" rows="5" class="mt-1 w-full rounded-xl bg-black/40 ring-1 ring-white/10 px-4 py-2.5 outline-none focus:ring-brand-500/50" placeholder="Tell us about your project…"></textarea>
+          </div>
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <p class="text-xs text-white/50">By submitting, you agree to our terms and privacy policy.</p>
+            <button class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-5 py-3 rounded-xl font-medium shadow-glow transition" type="submit">Submit</button>
+          </div>
+          <p id="formMsg" class="text-sm text-brand-300 hidden">Thank you! Your draft email is ready to send.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-white/60 text-sm">
+        <p>© <span id="year"></span> Engage Interactive. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#about" class="hover:text-white">About</a>
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#projects" class="hover:text-white">Projects</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu(){ if(mobileMenu) mobileMenu.classList.toggle('hidden'); }
+    if(menuBtn){ menuBtn.addEventListener('click', toggleMenu); }
+
+    // Year
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Projects carousel (safe guards)
+    const carousel = document.getElementById('carousel');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let start = 0;
+    function paginate(dir){
+      if(!carousel) return;
+      const cards = Array.from(carousel.children);
+      const size = 3; // items per page
+      const totalPages = Math.ceil(cards.length / size) || 1;
+      start = (start + (dir === 'next' ? 1 : -1) + totalPages) % totalPages;
+      cards.forEach((c,i)=>{ c.style.display = (Math.floor(i/size) === start) ? 'block' : 'none'; });
+    }
+    if(prev && next && carousel){
+      prev.addEventListener('click', ()=>paginate('prev'));
+      next.addEventListener('click', ()=>paginate('next'));
+      paginate('next'); paginate('prev');
+    }
+
+    // Contact form: mailto draft (no backend)
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const first = data.get('first_name');
+      const last = data.get('last_name');
+      const email = data.get('email');
+      const message = data.get('message');
+      const subject = encodeURIComponent(`New inquiry from ${first} ${last}`);
+      const body = encodeURIComponent(`First Name: ${first}\nLast Name: ${last}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:info@engagei.net?subject=${subject}&body=${body}`;
+      const msg = document.getElementById('formMsg');
+      if (msg) msg.classList.remove('hidden');
+    }
+
+    // Ensure autoplay on some mobile browsers
+    const bg = document.getElementById('bgVideo');
+    if (bg) {
+      const play = bg.play();
+      if (play !== undefined) { play.catch(()=>{ bg.muted = true; bg.play(); }); }
+      // Prefers-reduced-motion: pause background video
+      const prm = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (prm.matches) { bg.removeAttribute('autoplay'); bg.pause(); }
+    }
+
+    // Mute toggle button
+    const bgMute = document.getElementById('bgMute');
+    if (bg && bgMute) {
+      const syncLabel = () => { bgMute.textContent = bg.muted ? '🔇 Mute' : '🔊 Sound Off'; };
+      syncLabel();
+      bgMute.addEventListener('click', ()=>{ bg.muted = !bg.muted; syncLabel(); });
+    }
+  </script>
+</body>
+</html>
