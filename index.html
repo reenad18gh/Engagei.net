@@ -67,7 +67,7 @@
     @keyframes shimmer { 0% {background-position: -200% 0} 100% {background-position: 200% 0} }
     .shimmer { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 100%); background-size: 200% 100%; animation: shimmer 3s infinite; }
     .shadow-glow{ box-shadow: 0 0 24px color-mix(in oklab, var(--brand-500) 35%, transparent) !important; }
-      /* Service card theming */
+    /* Service card theming */
     .service-card{position:relative;overflow:hidden}
     .service-card::before{content:"";position:absolute;inset:0;opacity:.18;background:radial-gradient(120% 120% at 0% 0%, var(--card-accent, var(--brand-500)) 0%, transparent 60%)}
     .service-card .badge{background-color: color-mix(in oklab, var(--card-accent, var(--brand-500)) 18%, transparent)}
@@ -123,7 +123,6 @@
     <!-- Video Background -->
     <div class="absolute inset-0 -z-10 overflow-hidden">
       <video id="bgVideo" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
-        <!-- Add both sources; browsers pick the first they support -->
         <source src="hero.webm" type="video/webm" />
         <source src="hero.mp4" type="video/mp4" />
       </video>
@@ -316,6 +315,69 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section id="projects" class="py-20 border-t border-white/10 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8">Projects</h2>
+
+      <!-- Intro copy -->
+      <div class="rounded-3xl overflow-hidden ring-1 ring-white/10 mb-10">
+        <div class="relative">
+          <div class="absolute inset-0 bg-[url('hero-poster.jpg')] bg-cover bg-center opacity-30"></div>
+          <div class="relative p-8 sm:p-12 bg-black/40 backdrop-blur">
+            <h3 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">Tailored Cutting-Edge Solutions for you</h3>
+            <p class="text-white/80 max-w-4xl mx-auto text-center">Discover our captivating and innovative projects that push boundaries and create unforgettable experiences</p>
+            <p class="text-white/70 max-w-4xl mx-auto text-center mt-4">Our diverse portfolio showcases immersive themed events, cutting-edge interactive installations, mesmerizing light displays, futuristic e-sports activities, and robotic solutions</p>
+            <p class="text-white/70 max-w-4xl mx-auto text-center mt-4">With a team of experts blending creativity, technology, and meticulous craftsmanship, we bring remarkable worlds to life. Explore our projects and be inspired by the exceptional moments we have created</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio grid (small tiles that can link to YouTube) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <a href="https://www.youtube.com/watch?v=uyFoUfmWgak" target="_blank" rel="noopener" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="Interactive Museum – COIC">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/uyFoUfmWgak/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between">
+            <span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">Interactive Museum – COIC</span>
+            <span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">YouTube ↗</span>
+          </div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+        <a href="#" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="Science Oasis">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between"><span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">Science Oasis</span><span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">View ↗</span></div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+        <a href="#" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="The Executive Council">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between"><span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">The Executive Council</span><span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">View ↗</span></div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+        <a href="#" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="Aramco Cave Simulator">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/3JZ_D3ELwOQ/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between"><span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">Aramco Cave Simulator</span><span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">View ↗</span></div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+        <a href="#" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="Immersive Smart Experience">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between"><span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">Immersive Smart Experience</span><span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">View ↗</span></div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+        <a href="#" class="group relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-white/5 aspect-video" data-title="Interactive Library">
+          <div class="absolute inset-0 bg-[url('https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg')] bg-cover bg-center transition group-hover:scale-105"></div>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition"></div>
+          <div class="absolute inset-x-2 bottom-2 flex items-center justify-between"><span class="text-[11px] text-white/90 bg-black/50 px-2 py-1 rounded">Interactive Library</span><span class="text-[11px] bg-brand-500/80 px-2 py-1 rounded">View ↗</span></div>
+          <div class="absolute inset-0 grid place-items-center pointer-events-none"><div class="h-8 w-8 rounded-full bg-black/60 ring-1 ring-white/20 grid place-items-center">▶</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section id="contact" class="py-20 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -394,25 +456,6 @@
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Projects carousel (safe guards)
-    const carousel = document.getElementById('carousel');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    let start = 0;
-    function paginate(dir){
-      if(!carousel) return;
-      const cards = Array.from(carousel.children);
-      const size = 3; // items per page
-      const totalPages = Math.ceil(cards.length / size) || 1;
-      start = (start + (dir === 'next' ? 1 : -1) + totalPages) % totalPages;
-      cards.forEach((c,i)=>{ c.style.display = (Math.floor(i/size) === start) ? 'block' : 'none'; });
-    }
-    if(prev && next && carousel){
-      prev.addEventListener('click', ()=>paginate('prev'));
-      next.addEventListener('click', ()=>paginate('next'));
-      paginate('next'); paginate('prev');
-    }
-
     // Contact form: mailto draft (no backend)
     function handleSubmit(e){
       e.preventDefault();
@@ -445,7 +488,8 @@
       syncLabel();
       bgMute.addEventListener('click', ()=>{ bg.muted = !bg.muted; syncLabel(); });
     }
-      // ===== Simple hash router for service detail =====
+
+    // ===== Simple hash router for service detail =====
     const SERVICES_DATA = {
       'immersive-museum': {
         title: 'Immersive Museum',
@@ -506,23 +550,39 @@
     if(svcClose) svcClose.addEventListener('click', ()=> history.pushState('', document.title, window.location.pathname + window.location.search));
     if(svcBackdrop) svcBackdrop.addEventListener('click', ()=> history.pushState('', document.title, window.location.pathname + window.location.search));
 
-    // ===== Simple runtime checks ("test cases") =====
+    // ===== Self-tests (runtime checks) =====
     (function(){
-      // 1) All service links should have a matching entry in SERVICES_DATA
-      document.querySelectorAll('[data-id][data-testid^="svc-link-"]').forEach(el=>{
-        const id = el.getAttribute('data-id');
-        console.assert(!!SERVICES_DATA[id], `Missing service in data: ${id}`);
-      });
-      // 2) Opening a known hash should show detail
-      const testId = 'immersive-museum';
-      const prevHash = location.hash;
-      location.hash = '#/service/' + testId;
-      setTimeout(()=>{
-        console.assert(!svcDetail.classList.contains('hidden'), 'Detail should be visible');
-        // restore
-        location.hash = prevHash || '#services';
-      }, 0);
-    })();
-  </script>
-</body>
-</html>
+      try{
+        console.groupCollapsed('Self-tests');
+        // 0) Ensure no legacy carousel code is present
+        console.assert(!document.getElementById('prev') && !document.getElementById('next') && !document.getElementById('carousel'), 'Legacy carousel elements should not exist');
+        console.assert(typeof window.prev === 'undefined' && typeof window.next === 'undefined' && typeof window.carousel === 'undefined', 'Legacy carousel globals should be undefined');
+
+        // 1) All service links should have a matching entry in SERVICES_DATA
+        const svcIds = Array.from(document.querySelectorAll('[data-id][data-testid^="svc-link-"]')).map(el=>el.getAttribute('data-id'));
+        const missing = svcIds.filter(id=>!SERVICES_DATA[id]);
+        console.assert(missing.length===0, 'Every service card must have data. Missing: ' + missing.join(', '));
+
+        // 2) Service overlay opens/closes via hash
+        const prevHash = location.hash;
+        location.hash = '#/service/immersive-museum';
+        setTimeout(()=>{
+          console.assert(!svcDetail.classList.contains('hidden'), 'Detail should be visible after setting hash');
+          history.pushState('', document.title, window.location.pathname + window.location.search);
+          handleHash();
+          console.assert(svcDetail.classList.contains('hidden'), 'Detail should close after clearing hash');
+          // restore
+          location.hash = prevHash || '';
+        }, 0);
+
+        // 3) Projects anchor exists and target exists
+        const projectsLink = document.querySelector('a[href="#projects"]');
+        const projectsSection = document.getElementById('projects');
+        console.assert(!!projectsLink && !!projectsSection, 'Projects link/section must exist');
+
+        // 4) Mute button toggles label
+        if(bg && bgMute){
+          const initial = bgMute.textContent;
+          bgMute.click();
+          const changed = bgMute.textContent;
+          console.assert(initial !== changed, 'Mute button should toggle it
